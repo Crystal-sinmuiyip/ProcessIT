@@ -1,0 +1,76 @@
+﻿@page
+@model LoginModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="~/RegLogin/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="~/RegLogin/css/style.css">
+</head>
+<body>
+
+    <div class="main">
+
+    
+        <!-- Sing in  Form -->
+        <section class="sign-in">
+            <div class="container">
+                <div class="signin-content">
+                    <div class="signin-image">
+                        <figure><img src="~/RegLogin/images/signin-image.jpg" alt="sing up image"></figure>
+                        <a href="~/Identity/Account/Register" class="signup-image-link">Create an Account</a>
+                    </div>
+
+                    <div class="signin-form">
+                        <h2 class="form-title">Login</h2>
+                        <form method="POST" class="register-form" id="login-form">
+                            <div class="form-group">
+                                <label asp-for="Input.Email" ><i class="zmdi zmdi-email"></i></label>
+                                <input asp-for="Input.Email" autocomplete="username" aria-required="true" placeholder="Email"/>
+                                <span asp-validation-for="Input.Email" class="text-danger"></span>
+                            </div>
+                              <div class="form-group">
+                                <label asp-for="Input.Password" class="form-label"><i class="zmdi zmdi-lock"></i></label>
+                                <input asp-for="Input.Password" autocomplete="current-password" aria-required="true" placeholder="Password"/>
+                                 <span asp-validation-for="Input.Password" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" name="Input.RememberMe"  id="remember-me" class="agree-term" />
+                                <label asp-for="Input.RememberMe" class="label-agree-term"><span><span></span></span>
+                                @Html.DisplayNameFor(m => m.Input.RememberMe)</label>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
+                            </div>
+                        </form>
+                        <div class="social-login">
+                            <span class="social-label">Or login with</span>
+                            <ul class="socials">
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <script src="~/RegLogin/vendor/jquery/jquery.min.js"></script>
+    <script src="~/RegLogin/js/main.js"></script>
+</body>
+</html>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

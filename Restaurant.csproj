@@ -1,0 +1,265 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-ProcessITRestaurantResverationSystem-604C249A-1716-47A6-B6D1-561AC1EAE0C3</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap-grid.css" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap-grid.css.map" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap-grid.min.css" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap-grid.min.css.map" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap-grid.rtl.css" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap-grid.rtl.css.map" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap-grid.rtl.min.css" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap-grid.rtl.min.css.map" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap-reboot.css" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap-reboot.css.map" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap-reboot.min.css" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap-reboot.min.css.map" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap-reboot.rtl.css" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap-reboot.rtl.css.map" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap-reboot.rtl.min.css" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap-utilities.css" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap-utilities.css.map" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap-utilities.min.css" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap-utilities.min.css.map" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap-utilities.rtl.css" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap-utilities.rtl.css.map" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap-utilities.rtl.min.css" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap.css" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap.css.map" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap.min.css" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap.min.css.map" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap.rtl.css" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap.rtl.css.map" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap.rtl.min.css" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\css\bootstrap.rtl.min.css.map" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\js\bootstrap.bundle.js" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\js\bootstrap.bundle.js.map" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\js\bootstrap.bundle.min.js" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\js\bootstrap.bundle.min.js.map" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\js\bootstrap.esm.js" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\js\bootstrap.esm.js.map" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\js\bootstrap.esm.min.js" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\js\bootstrap.esm.min.js.map" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\js\bootstrap.js" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\js\bootstrap.js.map" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\js\bootstrap.min.js" />
+    <Content Remove="C:\Users\rassi\.nuget\packages\bootstrap\5.2.1\contentFiles\any\any\wwwroot\js\bootstrap.min.js.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="bootstrap" Version="5.2.1" />
+    <PackageReference Include="Enums.NET" Version="4.0.0" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
+    <PackageReference Include="MongoDB.Bson" Version="2.18.0" />
+    <PackageReference Include="MongoDB.Driver" Version="2.18.0" />
+    <PackageReference Include="MongoDB.Driver.Core" Version="2.18.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Models\Home\" />
+    <Folder Include="Models\Home\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\js\calendar7.js" />
+    <None Include="wwwroot\js\daterangepicker.js" />
+    <None Include="wwwroot\js\DragAndDrop.js" />
+    <None Include="wwwroot\js\jquery-ui.js" />
+    <None Include="wwwroot\js\jquery-ui.min.js" />
+    <None Include="wwwroot\js\moment.min.js" />
+    <None Include="wwwroot\js\site.js" />
+    <None Include="wwwroot\js\timepicker-bs4.js" />
+    <None Include="wwwroot\RegLogin\.sass-cache\21880c0ffe15753a53f8402e9f64e1077e071510\style.scssc" />
+    <None Include="wwwroot\RegLogin\.sass-cache\2866be86c578bb583fbf023501bb9fd24cc3bf22\extend.scssc" />
+    <None Include="wwwroot\RegLogin\.sass-cache\2866be86c578bb583fbf023501bb9fd24cc3bf22\fonts.scssc" />
+    <None Include="wwwroot\RegLogin\.sass-cache\2866be86c578bb583fbf023501bb9fd24cc3bf22\global.scssc" />
+    <None Include="wwwroot\RegLogin\.sass-cache\2866be86c578bb583fbf023501bb9fd24cc3bf22\minxi.scssc" />
+    <None Include="wwwroot\RegLogin\.sass-cache\2866be86c578bb583fbf023501bb9fd24cc3bf22\variables.scssc" />
+    <None Include="wwwroot\RegLogin\.sass-cache\3948936f84e1a30385e73a9be140b58b48c82e15\style.scssc" />
+    <None Include="wwwroot\RegLogin\.sass-cache\643489b018602f15119d8f44aeb7fc79468873a9\main.scssc" />
+    <None Include="wwwroot\RegLogin\.sass-cache\643489b018602f15119d8f44aeb7fc79468873a9\responsive.scssc" />
+    <None Include="wwwroot\RegLogin\.sass-cache\7643c8aa2e335ff5e104bc47d8dd7f1a0693bb39\extend.scssc" />
+    <None Include="wwwroot\RegLogin\.sass-cache\7643c8aa2e335ff5e104bc47d8dd7f1a0693bb39\fonts.scssc" />
+    <None Include="wwwroot\RegLogin\.sass-cache\7643c8aa2e335ff5e104bc47d8dd7f1a0693bb39\global.scssc" />
+    <None Include="wwwroot\RegLogin\.sass-cache\7643c8aa2e335ff5e104bc47d8dd7f1a0693bb39\minxi.scssc" />
+    <None Include="wwwroot\RegLogin\.sass-cache\7643c8aa2e335ff5e104bc47d8dd7f1a0693bb39\variables.scssc" />
+    <None Include="wwwroot\RegLogin\.sass-cache\9dc767a56f3dc2f8a933300255cd2265f13191d4\main.scssc" />
+    <None Include="wwwroot\RegLogin\.sass-cache\9dc767a56f3dc2f8a933300255cd2265f13191d4\responsive.scssc" />
+    <None Include="wwwroot\RegLogin\css\style.css.map" />
+    <None Include="wwwroot\RegLogin\fonts\material-icon\fonts\Material-Design-Iconic-Font.svg" />
+    <None Include="wwwroot\RegLogin\fonts\material-icon\fonts\Material-Design-Iconic-Font.woff2" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\poppins-v5-latin-300.svg" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\poppins-v5-latin-300.woff2" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\poppins-v5-latin-300italic.svg" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\poppins-v5-latin-300italic.woff2" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\poppins-v5-latin-500.svg" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\poppins-v5-latin-500.woff2" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\poppins-v5-latin-500italic.svg" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\poppins-v5-latin-500italic.woff2" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\poppins-v5-latin-600.svg" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\poppins-v5-latin-600.woff2" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\poppins-v5-latin-700.svg" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\poppins-v5-latin-700.woff2" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\poppins-v5-latin-700italic.svg" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\poppins-v5-latin-700italic.woff2" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\poppins-v5-latin-800.svg" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\poppins-v5-latin-800.woff2" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\poppins-v5-latin-800italic.svg" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\poppins-v5-latin-800italic.woff2" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\poppins-v5-latin-900.svg" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\poppins-v5-latin-900.woff2" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\poppins-v5-latin-italic.svg" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\poppins-v5-latin-italic.woff2" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\poppins-v5-latin-regular.svg" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\poppins-v5-latin-regular.woff2" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\roboto-condensed-v16-latin-700.svg" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\roboto-condensed-v16-latin-700.woff2" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\roboto-condensed-v16-latin-700italic.svg" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\roboto-condensed-v16-latin-700italic.woff2" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\roboto-condensed-v16-latin-italic.svg" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\roboto-condensed-v16-latin-italic.woff2" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\roboto-condensed-v16-latin-regular.svg" />
+    <None Include="wwwroot\RegLogin\fonts\poppins\roboto-condensed-v16-latin-regular.woff2" />
+    <None Include="wwwroot\RegLogin\js\main.js" />
+    <None Include="wwwroot\RegLogin\scss\common\extend.scss" />
+    <None Include="wwwroot\RegLogin\scss\common\fonts.scss" />
+    <None Include="wwwroot\RegLogin\scss\common\global.scss" />
+    <None Include="wwwroot\RegLogin\scss\common\minxi.scss" />
+    <None Include="wwwroot\RegLogin\scss\common\variables.scss" />
+    <None Include="wwwroot\RegLogin\scss\layouts\main.scss" />
+    <None Include="wwwroot\RegLogin\scss\layouts\responsive.scss" />
+    <None Include="wwwroot\RegLogin\scss\style.scss" />
+    <None Include="wwwroot\RegLogin\vendor\jquery\jquery-ui.min.js" />
+    <None Include="wwwroot\RegLogin\vendor\jquery\jquery.min.js" />
+    <None Include="wwwroot\src\formatters\24hr.js" />
+    <None Include="wwwroot\src\formatters\ampm.js" />
+    <None Include="wwwroot\src\formatters\french.js" />
+    <None Include="wwwroot\src\jquery.timeAutocomplete.js" />
+    <None Include="wwwroot\Templete\.gitattributes" />
+    <None Include="wwwroot\Templete\.gitignore" />
+    <None Include="wwwroot\Templete\CREDITS.txt" />
+    <None Include="wwwroot\Templete\css\bootstrap-datepicker.css" />
+    <None Include="wwwroot\Templete\css\bootstrap.css" />
+    <None Include="wwwroot\Templete\css\font-awesome.css" />
+    <None Include="wwwroot\Templete\css\jquery.fancybox.css" />
+    <None Include="wwwroot\Templete\css\magnific-popup.css" />
+    <None Include="wwwroot\Templete\css\slick.css" />
+    <None Include="wwwroot\Templete\css\theme-color\blue-theme.css" />
+    <None Include="wwwroot\Templete\css\theme-color\dark-red-theme.css" />
+    <None Include="wwwroot\Templete\css\theme-color\default-theme.css" />
+    <None Include="wwwroot\Templete\css\theme-color\green-theme.css" />
+    <None Include="wwwroot\Templete\css\theme-color\orange-theme.css" />
+    <None Include="wwwroot\Templete\css\theme-color\pink-theme.css" />
+    <None Include="wwwroot\Templete\css\theme-color\purple-theme.css" />
+    <None Include="wwwroot\Templete\css\theme-color\red-theme.css" />
+    <None Include="wwwroot\Templete\css\theme-color\tan-theme.css" />
+    <None Include="wwwroot\Templete\css\theme-color\violet-theme.css" />
+    <None Include="wwwroot\Templete\fonts\fontawesome-webfont.eot" />
+    <None Include="wwwroot\Templete\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\Templete\fonts\fontawesome-webfont.ttf" />
+    <None Include="wwwroot\Templete\fonts\fontawesome-webfont.woff" />
+    <None Include="wwwroot\Templete\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\Templete\fonts\FontAwesome.otf" />
+    <None Include="wwwroot\Templete\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="wwwroot\Templete\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\Templete\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="wwwroot\Templete\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="wwwroot\Templete\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\Templete\img\about-us.png" />
+    <None Include="wwwroot\Templete\img\chef\chef-1.jpg" />
+    <None Include="wwwroot\Templete\img\chef\chef-2.jpg" />
+    <None Include="wwwroot\Templete\img\chef\chef-3.jpg" />
+    <None Include="wwwroot\Templete\img\chef\chef-4.jpg" />
+    <None Include="wwwroot\Templete\img\chef\chef-5.jpg" />
+    <None Include="wwwroot\Templete\img\gallery\1.jpg" />
+    <None Include="wwwroot\Templete\img\gallery\2.jpg" />
+    <None Include="wwwroot\Templete\img\gallery\3.jpg" />
+    <None Include="wwwroot\Templete\img\gallery\4.jpg" />
+    <None Include="wwwroot\Templete\img\gallery\5.jpg" />
+    <None Include="wwwroot\Templete\img\gallery\6.jpg" />
+    <None Include="wwwroot\Templete\img\gallery\7.jpg" />
+    <None Include="wwwroot\Templete\img\gallery\8.jpg" />
+    <None Include="wwwroot\Templete\img\gallery\9.jpg" />
+    <None Include="wwwroot\Templete\img\gallery\fancybox_buttons.png" />
+    <None Include="wwwroot\Templete\img\gallery\fancybox_loading%402x.gif" />
+    <None Include="wwwroot\Templete\img\gallery\fancybox_loading.gif" />
+    <None Include="wwwroot\Templete\img\gallery\fancybox_overlay.png" />
+    <None Include="wwwroot\Templete\img\gallery\fancybox_sprite%402x.png" />
+    <None Include="wwwroot\Templete\img\gallery\fancybox_sprite.png" />
+    <None Include="wwwroot\Templete\img\menu\item-1.jpg" />
+    <None Include="wwwroot\Templete\img\menu\item-10.jpg" />
+    <None Include="wwwroot\Templete\img\menu\item-2.jpg" />
+    <None Include="wwwroot\Templete\img\menu\item-3.jpg" />
+    <None Include="wwwroot\Templete\img\menu\item-4.jpg" />
+    <None Include="wwwroot\Templete\img\menu\item-5.jpg" />
+    <None Include="wwwroot\Templete\img\menu\item-6.jpg" />
+    <None Include="wwwroot\Templete\img\menu\item-7.jpg" />
+    <None Include="wwwroot\Templete\img\menu\item-8.jpg" />
+    <None Include="wwwroot\Templete\img\menu\item-9.jpg" />
+    <None Include="wwwroot\Templete\img\plus.png" />
+    <None Include="wwwroot\Templete\img\slider\1.jpeg" />
+    <None Include="wwwroot\Templete\img\slider\2.jpeg" />
+    <None Include="wwwroot\Templete\img\slider\3.jpeg" />
+    <None Include="wwwroot\Templete\img\slider\ajax-loader.gif" />
+    <None Include="wwwroot\Templete\img\testimonial-1.png" />
+    <None Include="wwwroot\Templete\img\testimonial-2.png" />
+    <None Include="wwwroot\Templete\img\testimonial-3.png" />
+    <None Include="wwwroot\Templete\img\testimonial-bg.jpg" />
+    <None Include="wwwroot\Templete\js\app.js" />
+    <None Include="wwwroot\Templete\js\bootstrap-datepicker.js" />
+    <None Include="wwwroot\Templete\js\bootstrap.js" />
+    <None Include="wwwroot\Templete\js\jquery.magnific-popup.min.js" />
+    <None Include="wwwroot\Templete\js\jquery.min.js" />
+    <None Include="wwwroot\Templete\js\simple-animated-counter.js" />
+    <None Include="wwwroot\Templete\js\slick.js" />
+    <None Include="wwwroot\Templete\LICENSE.txt" />
+    <None Include="wwwroot\Templete\mailer.php" />
+    <None Include="wwwroot\Templete\style.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Areas\Admin\Views\RoleManager\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Admin\Views\UserRoles\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Admin\Views\UserRoles\Manage.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

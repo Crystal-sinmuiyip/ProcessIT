@@ -1,0 +1,81 @@
+﻿
+
+@page
+@model RegisterModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="~/RegLogin/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="~/RegLogin/css/style.css">
+</head>
+<body>
+
+    <div class="main">
+
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Sign up</h2>
+                        <form method="POST" class="register-form" id="register-form">
+                            <div class="form-group">
+                                <label asp-for="Input.FirstName"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input asp-for="Input.FirstName" autocomplete="username" aria-required="true" placeholder="First Name" />
+                                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                            </div>
+                             <div class="form-group">
+                                <label asp-for="Input.LastName" class="last"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input asp-for="Input.LastName" placeholder="Last Name"/>
+                                <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                             </div>
+                            <div class="form-group">
+                                <label asp-for="Input.Email"><i class="zmdi zmdi-email"></i></label>
+                                <input asp-for="Input.Email" placeholder="Email"/>
+                                <span asp-validation-for="Input.Email" class="text-danger"></span>           
+                            </div>      
+                            <div class="form-group">
+                                <label asp-for="Input.Password"><i class="zmdi zmdi-lock"></i></label>                               
+                                <input asp-for="Input.Password" autocomplete="new-password" aria-required="true" placeholder="Password" />
+                                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Input.ConfirmPassword"><i class="zmdi zmdi-lock-outline"></i></label>
+                                <input asp-for="Input.ConfirmPassword" autocomplete="new-password" aria-required="true" placeholder="Confirm Password"/>
+                                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                            </div>
+                        
+                            <div class="form-group">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="~/RegLogin/images/signup-image.jpg" alt="sing up image"></figure>
+                        <a href="~/Identity/Account/Login" class="signup-image-link">I am already member</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    <!-- JS -->
+    <script src="~/RegLogin/vendor/jquery/jquery.min.js"></script>
+    <script src="~/RegLogin/js/main.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
+
+

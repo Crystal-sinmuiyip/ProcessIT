@@ -1,0 +1,174 @@
+﻿@model Restaurant.Models.Reservation.CreateVM
+<h5>Booking for @Model.SittingDescription on @Model.RequestedDate.ToString("dd/MMMM/yyyy")</h5>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Bean Scene</title>
+    @section scripts{
+    <script src="~/form.js/JavaScript.js"></script>
+    <script src="/build/constrast-bootstrap-pro/js/cdb.js"></script>
+    }
+    <script>
+      const stepper = document.querySelector('#stepper');
+      new CDB.Stepper(stepper);
+    </script>
+    </head>
+    <body>
+     <div height="300px" class="stepper" id="stepper2">
+      <div class="steps-container">
+        <div class="steps">
+          <div class="step" icon="fa fa-pencil-alt" id="1">
+            <div class="step-title">
+              <span class="step-number">01</span>
+              <div class="step-text">Basic Information</div>
+            </div>
+          </div>
+          <div class="step" icon="fa fa-info-circle" id="2">
+            <div class="step-title">
+              <span class="step-number">02</span>
+              <div class="step-text">Personal Data</div>
+            </div>
+          </div>
+          <div class="step" icon="fa fa-book-reader" id="3">
+            <div class="step-title">
+              <span class="step-number">03</span>
+              <div class="step-text">Additional Information</div>
+            </div>
+          </div>
+          <div class="step" icon="fa fa-check" id="4">
+            <div class="step-title">
+              <span class="step-number">04</span>
+              <div class="step-text">Summary</div>                 
+            </div>
+          </div>
+       
+       
+       </div>
+     </div>
+       
+      <div class="stepper-content-container">
+        <div class="stepper-content fade-in" stepper-label="1">
+          <div>Step 1</div>
+        </div>
+        <div class="stepper-content fade-in" stepper-label="2">
+          <div>Step 2</div>
+        </div>
+        <div class="stepper-content fade-in" stepper-label="3">
+          <div>Step 3</div>
+        </div>
+        <div class="stepper-content fade-in" stepper-label="4">
+          <div>Step 4</div>
+        </div>
+       
+        </div>
+       </div>
+       
+   
+     <form id="regForm" asp-action="Create">
+         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+       
+     <h1>Welcome To Bean Scene</h1>
+      <!-- One "tab" for each step in the form: -->
+      <input type="number" asp-for="SittingId" value=@Model.SittingId hidden/>
+      <div class="tab">
+        <p><input placeholder="How many people are coming?" asp-for="NumberOfPeople" type="number" min="1" max="50" class="form-control" />
+           <span asp-validation-for="NumberOfPeople" class="text-danger"></span></p>
+        <p>Select a time:
+            <select asp-for="StartTime" type ="time" asp-items="Model.Times"></select>
+           <span asp-validation-for="StartTime" class="text-danger"></span></p>
+      </div>
+      <div class="tab">
+        <p><input placeholder="Name" asp-for="Name" type="Name" class="form-control" />
+           <span asp-validation-for="Name" class="text-danger"></span></p>
+
+       <p><input placeholder="Phone" asp-for="Phone" type="Phone" class="form-control"/>
+            <span asp-validation-for="Phone" class="text-danger"></span></p>
+
+       <p><input placeholder="Email" asp-for="Email" type="Email" class="form-control" />
+           <span asp-validation-for="Email" class="text-danger"></span></p>
+      </div>
+      <div class="tab">
+        <p><input placeholder="Notes" asp-for="Notes" type="text" minlength="0" maxlength= "100" class="form-control" />
+           <span asp-validation-for="Notes" class="text-danger"></span></p>
+        <p><label class="form-check-label">
+           <input class="form-check-input" asp-for="Birthday" /> @Html.DisplayNameFor(model => model.Birthday)
+           </label></p>
+        <p><label class="form-check-label">
+            <input class="form-check-input" asp-for="Anniversary" /> @Html.DisplayNameFor(model => model.Anniversary)
+            </label></p>
+        <p><label class="form-check-label">
+            <input class="form-check-input" asp-for="Pram" /> @Html.DisplayNameFor(model => model.Pram)
+            </label></p>
+        <p><label class="form-check-label">
+           <input class="form-check-input" asp-for="HighChair" /> @Html.DisplayNameFor(model => model.HighChair)
+           </label></p>
+         <p><label class="form-check-label">
+            <input class="form-check-input" asp-for="DisabledAccess" /> @Html.DisplayNameFor(model => model.DisabledAccess)
+            </label></p>
+         <p><label class="form-check-label">
+            <input class="form-check-input" asp-for="Allergy" /> @Html.DisplayNameFor(model => model.Allergy)
+            </label></p>   
+        </div>
+        <div class="tab">
+        <style>
+        table, th, td {
+          border:1px solid black;
+        }
+        </style>
+      
+
+        <h4>Booking Summary:</h4>
+        <h6>Table for</h6><h6 id="summaryNumberOfPeople"></h6>
+        <h6>on</h6><h6 id="summaryTime"></h6>
+
+        <table style="width:100%">
+          <tr>
+              <td> Name </td>
+              <td> <h6 id="summaryName"></h6></td>
+          </tr>
+          <tr>
+              <td> Phone </td>
+              <td> <h6 id="summaryPhone"></h6></td>
+          </tr>
+          <tr>
+              <td> Email </td>
+              <td> <h6 id="summaryEmail"></h6></td> 
+          </tr>
+          <tr>
+              <td> Notes </td>
+              <td> <h6 id="summaryNotes"></h6></td> 
+          </tr>
+           <tr>
+              <td> Additional Information: </td>
+               <td> <h6 id="summaryBirthday"></h6> 
+               <h6 id="summaryAnniversary"></h6>
+               <h6 id="summaryPram"></h6>
+               <h6 id="summaryHighChair"></h6>
+               <h6 id="summaryDisabledAccess"></h6>
+               <h6 id="summaryAllergy"></h6>  </td> 
+           </tr>
+
+        </table>
+        </div> 
+   
+     <div style="overflow:auto;">
+      <div style="float:right;">
+        <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+        <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>       
+        <button id="submitRes" type="submit" value="Create" >Submit</button>
+      </div>
+    </div>
+
+    </form>
+
+    </body>
+    </html>
+    @section styles{
+    <link rel="StyleSheet" href="~/form.css/StyleSheet.css" />
+}
+
+   

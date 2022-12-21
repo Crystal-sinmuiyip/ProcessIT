@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Restaurant.Data.Sitting>
+
+<p>
+    
+    <a asp-action="Create"  asp-controller="Sitting" >Create a new sitting</a>
+</p>
+
+<h1>Sitting Calendar</h1>
+
+<div id='calendar'></div>
+
+<p>
+    
+    <a asp-action="Create"  asp-controller="Sitting" >Create a new sitting</a>
+</p>
+
+ 
+@section scripts{
+<script src="~/lib_Sitting/lib/main.min.js"></script>
+}
+<script>
+         
+        document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+           headerToolbar: { 
+                left:'today,prev,next',
+                center: 'title',
+                right: 'timeGridWeek,timeGridDay',
+           },
+           initialView:'timeGridWeek',
+           editable: true,
+           slotMinTime: "06:00:00",
+           dateClick:function(event){
+               window.location.href= 
+                '@Url.Action("create")'
+           },
+           eventResize:function(info){    
+               alert(info.event.title + " end is now " + info.event.end.toISOString());
+
+               if (!confirm("is this okay?")) {
+                info.revert();
+                }
+                 },
+
+         
+            
+            eventClick:function(info, jsEvent,view) {
+            var eventObj = info.event;
+            if (eventObj.id) {
+                
+                window.open('https://localhost:7120/Admin/Sitting/Details/' + eventObj.id) 
+            }
+            },         
+          
+             events: 'https://localhost:7120/Admin/Sitting/findallevents'
+        });
+     
+     
+
+          calendar.render();
+      });
+      
+            
+
+
+    </script>
+
+@section styles{
+<link rel="stylesheet" href="~/lib_Sitting/lib/main.min.css" />
+}
+

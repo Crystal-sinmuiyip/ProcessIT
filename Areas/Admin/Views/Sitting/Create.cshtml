@@ -1,0 +1,162 @@
+﻿@model Restaurant.Areas.Admin.Models.Sitting.CreateVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+
+<form asp-action='Create' class='form'>
+ <fieldset>
+   <Legend>New Sitting</Legend>
+  <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+  <p class='field required'>
+    <label class='label required' asp-for='Name'>Sitting Title: </label>
+    <input class='text-input' asp-for='Name' required >
+    <span asp-validation-for="Name" class="text-danger"></span>
+  </p>
+  <p class='field required half'>
+    <label class='label' asp-for='Capacity'>Capacity: </label>
+    <input class='text-input' asp-for='Capacity' required>
+     <span asp-validation-for="Capacity" class="text-danger"></span>
+  </p>
+  <p class='field half'>
+    <label class='label' asp-for='DurationReservation'>The Length of the reservation: </label>
+    <input class='text-input' asp-for='DurationReservation' type="number" min="0" max="180" step="15">
+    <span asp-validation-for="DurationReservation" class="text-danger"></span>
+  </p>
+  <p class='field half'>
+    <label class='label' asp-for='DurationSitting'>The length of the Sitting Schedule: </label>
+   <input asp-for="DurationSitting" type="number" min="0" max="300" step="30" class="text-input" />
+    <span asp-validation-for="DurationSitting" class="text-danger"></span>
+ </p>
+ <p class='field half'>
+    <label class='label' asp-for='DateAvailable'>Start Date: </label>
+    <input asp-for="DateAvailable" type="date" class="text-input" />
+    <span asp-validation-for="DateAvailable" class="text-danger"></span>
+  </p>
+  <p class='field half required'>
+    <label class='label' asp-for='StartTime'>Start Time: </label>
+    <input asp-for="StartTime" id="startTime" type="time" min="06:00" max="22:00" class="text-input" />  
+    <span asp-validation-for="StartTime" class="text-danger"></span>
+  </p>
+  <p class='field half required'>
+    <label class='label' asp-for='DurationNumberOfDays'> Amounts of days available: </label>
+    <input asp-for="DurationNumberOfDays" type="number" min="0" max="90" step="7" class="text-input"  />
+    <span asp-validation-for="DurationNumberOfDays" class="text-danger"></span>
+  </p>
+
+  <div class='field'>
+    <label class='label'>Sitting For: </label>
+
+    <div class="form-group form-check">
+    <label class="form-check-label">Public</label>
+       <input class="form-check-input" asp-for="PublicCanMakeReservation" /> 
+    </div>
+    <div class="form-group form-check">
+    <label class="form-check-label">Private</label>
+       <input class="form-check-input" asp-for="PublicCanMakeReservation" /> 
+    </div>
+<p>
+  <div>
+    <label class='label'>Days Available: </label>
+
+    <div class="form-group form-check">
+      <label class="form-check-label">Sunday
+        <input class="form-check-input" asp-for="ScheduleOnSunday" /> 
+      </label>
+    </div>
+      <div class="form-group form-check">
+      <label class="form-check-label">Monday
+        <input class="form-check-input" asp-for="ScheduleOnMonday" /> 
+      </label>
+    </div>
+      <div class="form-group form-check">
+      <label class="form-check-label">Tuesday
+        <input class="form-check-input" asp-for="ScheduleOnTuesday" /> 
+      </label>
+    </div>
+      <div class="form-group form-check">
+      <label class="form-check-label">Wednesday
+        <input class="form-check-input" asp-for="ScheduleOnWednesday" /> 
+      </label>
+    </div>
+      <div class="form-group form-check">
+      <label class="form-check-label">Thursday
+        <input class="form-check-input" asp-for="ScheduleOnThursday" /> 
+      </label>
+    </div>
+     <div class="form-group form-check">
+      <label class="form-check-label">Friday
+        <input class="form-check-input" asp-for="ScheduleOnFriday" /> 
+      </label>
+    </div>
+      <div class="form-group form-check">
+      <label class="form-check-label">Saturday
+        <input class="form-check-input" asp-for="ScheduleOnSaturday" /> 
+      </label>
+    </div>
+  </div>
+</p>
+<p>
+ <div> 
+    <label class='label'>Sitting Area: </label>
+
+   <div class="form-group form-check">
+      <label class="form-check-label">Main
+        <input class="form-check-input" asp-for="AreaMain" /> 
+      </label>
+    </div>
+     <div class="form-group form-check">
+      <label class="form-check-label">Outside
+        <input class="form-check-input" asp-for="AreaOutside" /> 
+      </label>
+    </div>
+    <div class="form-group form-check">
+      <label class="form-check-label">Balcony
+        <input class="form-check-input" asp-for="AreaBalcony" /> 
+      </label>
+    </div>
+  </div>
+</p>
+
+<p class='field half'>
+    <label class='label' asp-for='SittingTypeId'>Sitting Types: </label>
+    <select asp-for="SittingTypeId"  asp-items="Model.SittingTypes"></select>  
+</p>
+  <div class="form-group">
+    <input type="submit" value="Create" class="btn btn-primary" />
+ </div>
+ </fieldset>
+</form>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+
+
+@section Scripts {
+   
+    <script>
+         //increment: 15,
+        $('#startTime').timeAutocomplete.setTime('06:00:00');
+        $('#startTime').timeAutocomplete.setFormatter('ampm')({
+            start_hour: '6',
+            increment: '15',
+           
+          pm_text:'PM',
+          am_text:'AM'
+
+        });
+         $('#startTime').click(function(){
+            var msg = 'from: ' + $('#startTime').data('timeAutocomplete').getTime() ;
+           
+            alert(msg);
+        });
+       
+  </script>
+
+}
+  

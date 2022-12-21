@@ -1,0 +1,37 @@
+﻿@*   @section scripts{<script src="~/timer/JavaScript.js"></script>}*@
+
+<!DOCTYPE html>
+<html>
+  <head>
+  
+    <meta http-equiv="refresh" content="6; url='https://Localhost:7120'" />
+  </head>
+  <style>
+    h1 {text-align: center;}
+    h4 {text-align: center;}
+    p {text-align: center;}
+    div {text-align: center;}
+</style>
+  <body>
+      <h1>Thank You!</h1>
+      <h4> You will receive the comfirmation email shortly. </h4>
+        <p> Please wait! We will redirect you back to Home</p>
+        <div id="countdown"></div>
+        <script>
+            var timeleft = 5;
+            var downloadTimer = setInterval(function () {
+            if (timeleft <= 0) {
+                clearInterval(downloadTimer);
+                document.getElementById("countdown").innerHTML = 'Finish';
+            } else {
+                document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
+            }
+            timeleft -= 1;
+            }, 1000);
+        </script>
+      
+  </body>
+</html>
+
+     
+                    

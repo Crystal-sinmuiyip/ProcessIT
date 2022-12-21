@@ -1,0 +1,333 @@
+﻿@model Restaurant.Areas.Admin.Models.Reservation.AllocateReservationToTableVM
+
+@{
+    ViewData["Title"] = "AllocateReservationToTable";
+}
+@section Styles{
+   <link rel="stylesheet" href="~/css/dragdrop.css" asp-append-version="true" />
+}
+<h2>Allocate table to a reservation</h2>
+
+<h4>Reservation Details</h4>
+<hr />
+<div class="row">
+    <div class="col">
+        <dl class="row">
+         <div>
+                <dt class = "col-md-auto">
+                   Name of customer
+                </dt>
+                <dd class = "col-md-auto">
+                    @Html.DisplayFor(model => model.ReservationName)
+                </dd>
+          </div>
+        <dt class = "col-md-auto">
+           Phone
+        </dt>
+        <dd class = "col-md-auto">
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+        <dt class = "col-md-auto">
+            Comments / Requests
+        </dt>
+        <dd class = "col-md-auto">
+            @Html.DisplayFor(model => model.ReservationComments)
+        </dd>
+        <dt class = "col-md-auto">
+            Number of People
+        </dt>
+        <dd class = "col-md-auto">
+            @Html.DisplayFor(model => model.ReservationNumberOfPeople)
+        </dd>
+         <div>
+            <dt class = "col-md-auto">
+               Start Time
+            </dt>
+            <dd class = "col-md-auto">
+                @Html.DisplayFor(model => model.ReservationStartTime)
+            </dd>
+        </div>
+    </dl>
+    <form asp-action="OnPostUpdateReservationStatus">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+             
+           
+            <div class="form-group">
+              
+                 <div class="checkbox-inline">
+                    <label class="form-check-label">
+                         @if (Model.StatusId == 1)
+                        {
+                            <input type="checkbox" class="chk" value="false" asp-for="StatusChange" onchange="this.value = this.checked;document.getElementById('btnSubmit').click();">
+                         }
+                        else
+                        {
+                             <input type="checkbox" class="chk" value="true" checked="checked" asp-for="StatusChange" onchange="this.value=this.unchecked;document.getElementById('btnSubmit').click();">
+                        }
+                        @Html.DisplayNameFor(model => model.StatusChange)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+               
+                <input type="hidden" class="Id" asp-for="@Model.Id" />
+                <input type="submit" hidden id="btnSubmit" value="Save the Reservation Status" class="btn btn-primary" />
+            </div>
+        </form>
+       <form id="allFormAllocateTable" asp-action="AddSingleTable" class="bg-opacity-25 bg-primary">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" id="data-res-id" data-res-id=@Html.DisplayFor(Model => Model.ReservationId) />
+            <section class="container">
+                <div class="row">
+                     <div class="col-4 bg-warning bg-opacity-75">
+                        <div class="drag-area">
+                          <div class="area">
+                                   <div class="row">
+                                        <div class="col-md-auto text-xxl-left text-black">
+                                            Please choose from available tables
+                                        </div>
+                                        <hr />
+                                   </div>
+                                  <div class="row">
+                                      <div class="col-4">
+                                           @foreach (var item in Model.SittingTables)
+                                           {   var mainData = item.TableName.Substring(0, 1);
+                                               if (mainData=="M")
+                                               {
+                                                         <div class="box" id=@Html.DisplayFor(modelItem => item.Id) 
+                                                            data-tableId= @Html.DisplayFor(modelItem => item.TableReferenceId)
+                                                          
+                                                            data-tableForSitting-id= @Html.DisplayFor(modelItem => item.Id)>
+                                                                @Html.DisplayFor(modelItem => item.TableName)
+                                  
+                                                        </div>
+                                               }
+                                           } 
+                                       </div>
+                                      <div class="col-4">
+                                           @foreach (var item in Model.SittingTables) 
+                                           {   var mainData = item.TableName.Substring(0, 1);
+                                               if (mainData=="O")
+                                               {
+                                                         <div class="box" id=@Html.DisplayFor(modelItem => item.Id) 
+                                                            data-tableId= @Html.DisplayFor(modelItem => item.TableReferenceId)
+                                                            
+                                                            data-tableForSitting-id= @Html.DisplayFor(modelItem => item.Id)>
+                                                                @Html.DisplayFor(modelItem => item.TableName)
+                                  
+                                                        </div>
+                                               }
+                                           }
+                                      </div>
+                                      <div class="col-4">
+                                            @foreach (var item in Model.SittingTables) 
+                                           {   var mainData = item.TableName.Substring(0, 1);
+                                               if (mainData=="B")
+                                               {
+                                                         <div class="box" id=@Html.DisplayFor(modelItem => item.Id) 
+                                                            data-tableId= @Html.DisplayFor(modelItem => item.TableReferenceId)
+                                                           
+                                                            data-tableForSitting-id= @Html.DisplayFor(modelItem => item.Id)>
+                                                                @Html.DisplayFor(modelItem => item.TableName)
+                                  
+                                                        </div>
+                                               }
+                                           } 
+                                      </div>
+                                   </div>
+                               
+                          </div>
+                        </div>
+                     </div>
+                     
+                     <div class="col-4 offset-4 bg-success">
+                         <div class="drag-area">
+                           
+                            
+                              <div class="row">
+                                        <div class="col-md-auto text-xl-left text-black">
+                                            Drop tables here to allocate to this reservation
+                                        </div>
+                                        <hr />
+                              </div>
+                             <div class="area">
+                                  <div class="row">
+                                      <div class="col-4">
+                                           @foreach (var item in Model.AlreadyAllocatedToThisResSittingTables)
+                                           {   var mainData = item.TableName.Substring(0, 1);
+                                               if (mainData=="M")
+                                               {
+                                                         <div class="box" id=@Html.DisplayFor(modelItem => item.Id) 
+                                                            data-tableId= @Html.DisplayFor(modelItem => item.TableReferenceId)
+                                                            
+                                                            data-tableForSitting-id= @Html.DisplayFor(modelItem => item.Id)>
+                                                                @Html.DisplayFor(modelItem => item.TableName)
+                                  
+                                                        </div>
+                                               }
+                                           } 
+                                       </div>
+                                        <div class="col-4">
+                                           @foreach (var item in Model.AlreadyAllocatedToThisResSittingTables) 
+                                           {   var mainData = item.TableName.Substring(0, 1);
+                                               if (mainData=="O")
+                                               {
+                                                         <div class="box" id=@Html.DisplayFor(modelItem => item.Id) 
+                                                            data-tableId= @Html.DisplayFor(modelItem => item.TableReferenceId)
+                                                            
+                                                            data-tableForSitting-id= @Html.DisplayFor(modelItem => item.Id)>
+                                                                @Html.DisplayFor(modelItem => item.TableName)
+                                  
+                                                        </div>
+                                               }
+                                           }
+                                       </div>
+                                        <div class="col-4">
+                                            @foreach (var item in Model.AlreadyAllocatedToThisResSittingTables) 
+                                           {   var mainData = item.TableName.Substring(0, 1);
+                                               if (mainData=="B")
+                                               {
+                                                         <div class="box" id=@Html.DisplayFor(modelItem => item.Id) 
+                                                            data-tableId= @Html.DisplayFor(modelItem => item.TableReferenceId)
+                                                             
+                                                            data-tableForSitting-id= @Html.DisplayFor(modelItem => item.Id)>
+                                                                @Html.DisplayFor(modelItem => item.TableName)
+                                  
+                                                        </div>
+                                               }
+                                           } 
+                                       </div>
+                                   </div>
+                             
+                           </div> 
+                          
+                         </div>
+                     </div>
+                </div>
+               
+                <div class="row">
+                    <div class="col-md-auto p-20">
+                        <div class="resultheading">
+                            <p class="mt-5">RESULT</p>  
+                         </div>
+                        <div class="result">-</div>
+                          
+                    </div>
+                </div>
+              
+             </section>
+           
+        </form>
+          
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+   
+    <script>
+        //alert(" in the javascript");
+        
+        var origin = window.location.origin;
+        //alert(origin);
+        var urlValue = origin + "/api/ApiWeb/AddSingleTable";
+
+        function doFetch(item) {
+           // alert("doFetch");
+           // alert(item);
+            var itemStringify = JSON.stringify(item);
+            
+            fetch(urlValue, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(item)
+            })
+                .then(response => response.json())
+                .then(() => {
+                    // alert ("successful ADD");
+                })
+                .catch(error => console.error('Unable to add item.', error));
+        }
+       
+        ///////////////////////////////////////////////////////////////////////////////////
+        $( ".box" ).draggable({
+              scope: 'demoBox',
+              revertDuration: 100,
+              start: function( event, ui ) {
+                      
+                //Reset
+                $( ".box" ).draggable( "option", "revert", true );
+                
+                $('.result').html('-');
+              }
+        });
+        
+        
+        /////////////////////////////////////////////////////////////////////////////////
+        
+        $(".drag-area").droppable({
+            scope: 'demoBox',
+            
+            drop: function(event, ui) {
+
+                
+             
+                var workResId = document.getElementById('data-res-id').value;
+
+                //var boxId = $(this).attr("id");
+               // alert("this is workResId = " + workResId);
+
+                var boxId = $(ui.draggable).attr("id");
+               // alert("this is boxId = " + boxId);
+
+                var workTableName = $(ui.draggable).html();
+               // alert("this is workTableName= " + workTableName);
+                // dropArea is false when box dragged from drag to drop area
+                //var dropArea = ui.draggable.attr("data-dropArea");
+                //alert(dropArea);
+        
+                var messageForResult = "No action yet";
+                var boxMessage = $(ui.draggable).html();
+
+                //// this means the user has dropped onto the drop area and not just moved around the drag area
+                //if (dropArea === "fromdrag") {
+                //    //var workSingleTableLetter = FindAreaSingleLetter(workTableName);
+                //    //alert(workSingleTableLetter);
+                //    // this checks if the user has dropped a table from the drop area to the drop area.
+                    if (boxId > 0) {
+                        var item = {
+                            ReservationId: workResId,
+                            TableForSittingId: boxId
+                        };
+                        doFetch(item);
+                        messageForResult = "<b>" + boxMessage + "</b>" + " allocated to reservation ";
+                    } else { messageForResult = "No update performed"; };
+                //} else { messageForResult = "Please move a table from the available unallocated tables to the green area"; };
+                
+
+
+                //  findValuesInHtml(ui);
+               // var area = $(this).find(".area").html();
+
+                var box = $(ui.draggable).html();
+                $(".box").draggable("option", "revert", false);
+
+                //Display action in text
+              //  $('.result').html(messageForResult);
+                $('.result').html(messageForResult).css({padding:20});
+                $('.resultheading').css({padding:20});
+
+                //Realign item
+                $(ui.draggable).detach().css({ top: 0, left: 0 }).appendTo(this);
+            }
+        });
+
+    
+  </script>
+}

@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Restaurant</title>
+    <link rel="stylesheet" href="~/css/css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="~/css/css/jquery-ui.theme.min.css" />
+    <link rel="stylesheet" href="~/css/css/jquery-ui.structure.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    @*<link rel="stylesheet" href="~/Restaurant.styles.css" asp-append-version="true" />*@
+
+    @await RenderSectionAsync("Styles", required: false)
+
+</head>
+
+
+
+
+
+<body>
+    <header>
+        <nav class="navbar navbar-white bg-white">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src=~/Templete/img/BeanSceneLogo.jpg style="width:40%" /></a>
+                 <a img src="@Url.Action("ProfilePicture", "Home" )" height="48" width="48" /></a>
+               <partial name="_LoginPartial" />
+            </div>
+        </nav>
+
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - Restaurant - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.js/jquery.min.js"></script>
+    <script src="~/js/jquery-ui.js/jquery-ui.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core -->
+    <script src="~/src/jquery.timeAutocomplete.js"></script>
+
+    <!-- AM/PM extension -->
+    <script src="~/src/formatters/ampm.js"></script>
+    <!-- 24hr extension -->
+    <script src="~/src/formatters/24hr.js"></script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

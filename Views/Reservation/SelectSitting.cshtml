@@ -1,0 +1,43 @@
+﻿@model IEnumerable< Restaurant.Models.Reservation.SelectSittingVM>
+
+@{
+    ViewData["Title"] = "Sittings";
+}
+
+<a href="~/Home/Index"><img src=~/Templete/img/BeanSceneLogo.jpg style="width:15%"/></a>
+<div id='calendar'></div>
+ 
+@section scripts{
+<script src="~/lib_Sitting/lib/main.min.js"></script>
+}
+<script>
+         
+        document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+           headerToolbar: { 
+                left:'today,prev,next',
+                center: 'title',
+               },
+           initialView:'dayGridMonth',
+           editable: false,
+           displayEventTime : false,
+           
+           eventClick:function(info, jsEvent,view) {
+            var eventObj = info.event;
+            if (eventObj.id) {
+                
+                window.open('https://localhost:7120/Reservation/Create/' + eventObj.id) 
+            
+            }
+            }, 
+             events: 'https://localhost:7120/Reservation/findallbookings'
+        });
+         
+
+          calendar.render();
+      });
+
+    </script>
+@section styles{
+<link rel="stylesheet" href="~/lib_Sitting/lib/main.min.css" />}

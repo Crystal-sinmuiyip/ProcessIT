@@ -1,0 +1,151 @@
+﻿@model IEnumerable<Restaurant.Data.Reservation>
+
+@{
+    ViewData["Title"] = "Bookings for Current user";
+}
+<a href="https://localhost:7120"><img src=~/Templete/img/BeanSceneLogo.jpg style="width:10%" /></a>
+<h1>Bookings</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartTime)
+            </th>
+            <th>
+                Number of People
+            </th>
+            <th>
+                Meal
+            </th>
+            <th>
+                Status
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var todaysDate = DateTime.Now;
+            var currentResCount = Model.Where(r => r.StartTime >= todaysDate).Count<Restaurant.Data.Reservation>();
+
+            @if (currentResCount > 0)
+            {
+                <h2>Current Bookings</h2>
+                @foreach (var item in Model)
+                {
+                    var currentRes = DateTime.Now;
+                    @if (item.StartTime >= currentRes)
+                    {
+
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Phone)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StartTime)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NumberOfPeople)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SittingType.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Status.Name)
+                            </td>
+
+                        </tr>
+                    }
+                }
+            }
+        }
+    </tbody>
+</table>
+@{
+    todaysDate = DateTime.Now;
+    var precResCount = Model.Where(r => r.StartTime < todaysDate).Count<Restaurant.Data.Reservation>();
+    @if (precResCount > 0)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Phone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StartTime)
+                    </th>
+                    <th>
+                        Number of People
+                    </th>
+                    <th>
+                        Meal
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <h2>Previous Bookings</h2>
+                @foreach (var item in Model)
+                {
+                    var currentRes = DateTime.Now;
+                    if (item.StartTime < currentRes)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Phone)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StartTime)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NumberOfPeople)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SittingType.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Status.Name)
+                            </td>
+
+                        </tr>
+                    }
+                }
+
+            </tbody>
+        </table>
+    }
+}
+
